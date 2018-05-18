@@ -58,12 +58,8 @@
 								<a href="<?= base_url('Home/product') ?>">Shop</a>
 							</li>
 
-							<li class="label1" data-label1="hot">
-								<a href="<?= base_url('Home/shopping') ?>">Features</a>
-							</li>
-
 							<li>
-								<a href="<?= base_url('Home/viewProduct') ?>">Product</a>
+								<a href="<?= base_url('Cart') ?>">Product</a>
 							</li>
 
 							<li>

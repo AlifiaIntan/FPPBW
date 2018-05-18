@@ -5,24 +5,25 @@ class Cart extends CI_Controller{
 	function __construct(){
 		parent::__construct();
 		$this->load->model('cart_model');
+		$this->load->model('M_admin');
 	}
 
 	function index(){
-		$data['data']=$this->cart_model->get_all_produk();
-		
+		$data['data']=$this->cart_model->get_all_produk();	
 		$this->load->view('header');
-		$this->load->view('v_cart',$data);
+		$this->load->view('shopping_cart',$data);
 		$this->load->view('footer');
 	}
 
 	function add_to_cart(){ //fungsi Add To Cart
 		$data = array(
-			'id' => $this->input->post('for_id'), 
-			'name' => $this->input->post('title'), 
+			'id' => $this->input->post('id'), 
+			'name' => $this->input->post('tittle'), 
 			'price' => $this->input->post('price'), 
 			'qty' => $this->input->post('quantity'), 
 			//cart sesion dari controller cart
 		);
+
 		$this->cart->insert($data);
 		echo $this->show_cart(); //tampilkan cart setelah added
 	}
@@ -161,4 +162,51 @@ class Cart extends CI_Controller{
 
 		
 	}
+
+	function add(){
+    $firstname = $this->input->post('firstname');
+    $email = $this->input->post('email');
+    $address = $this->input->post('address');
+    $city = $this->input->post('city');
+    $discount = $this->input->post('discount');
+    $state = $this->input->post('state');
+    $zip = $this->input->post('zip');
+    $cardname = $this->input->post('cardname');
+
+    $data = array(
+            'penerima' => $firstname,
+            'Email' => $email,
+            'alamat' => $address,
+      		'kota' => $city,
+      		'provinsi' => $state,
+      		'zip' => $zip,
+      		'pembayar' => $cardname,
+
+            );
+	$this->db->insert('orders', $data);
+	$idOrder = $this->db->insert_id();
+
+	$items = $this->cart->contents();
+
+	foreach ($items as $item) {
+		$data = array(
+        'produk_id' => $item['id'],
+        'produk_nama' => $item['name'],
+        'produk_harga' => $item['price'],
+        'quantity' => $item['qty'],
+        'total' => $item['qty'] * $item['price'],
+        'order_id' => $idOrder
+		);
+
+		$item['qty'] = 0;
+
+		$this->db->insert('tbl_produk', $data);
+	}
+
+
+$items = $this->cart->contents();
+
+$this-> recordOrder();
+
+}
 }
