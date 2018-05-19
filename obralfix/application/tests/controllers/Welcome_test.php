@@ -12,8 +12,8 @@ class Welcome_test extends TestCase
 {
 	public function test_index()
 	{
-		$output = $this->request('GET', 'welcome/index');
-		$this->assertContains('<title>Welcome to CodeIgniter</title>', $output);
+		$output = $this->request('GET', 'Home');
+		$this->assertContains('Product Overview', $output);
 	}
 
 	public function test_method_404()
@@ -22,14 +22,5 @@ class Welcome_test extends TestCase
 		$this->assertResponseCode(404);
 	}
 
-	public function test_APPPATH()
-	{
-		$actual = realpath(APPPATH);
-		$expected = realpath(__DIR__ . '/../..');
-		$this->assertEquals(
-			$expected,
-			$actual,
-			'Your APPPATH seems to be wrong. Check your $application_folder in tests/Bootstrap.php'
-		);
-	}
+	
 }

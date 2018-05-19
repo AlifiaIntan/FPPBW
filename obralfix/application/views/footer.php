@@ -366,7 +366,7 @@
         });
     </script>
 <!--===============================================================================================-->
-    <script src="<?= base_url('assets/js/main.js') ?>"></script>-->  
+    <script src="<?= base_url('assets/js/main.js') ?>"></script>
 <script type="text/javascript" src="<?php echo base_url().'assets/js/jquery-2.2.3.min.js'?>"></script>
 <script type="text/javascript" src="<?php echo base_url().'assets/js/bootstrap.js'?>"></script>
 
@@ -381,7 +381,7 @@
 			$.ajax({
 				url : "<?php echo base_url();?>cart/add_to_cart/",
 				method : "POST",
-				data : {for_id: for_id , title: title, price: price, quantity: quantity},
+				data : {id: for_id , tittle: title, price: price, quantity: quantity},
 				success: function(data){ 	
 					$('#detail_cart').html(data);
 				}
@@ -398,7 +398,7 @@
 			$.ajax({
 				url : "<?php echo base_url();?>cart/add_to_cart/",
 				method : "POST",
-				data : {for_id: for_id , title: title, price: price, quantity: quantity},
+				data : {id: for_id , tittle: title, price: price, quantity: quantity},
 				success: function(data){ 	
 					$('#detail_cart').html(data);
 				}
@@ -449,16 +449,7 @@
 			});
 	}
 </script>
-
-
-
-
-
-
-
-
-
-
+<script src="<?= base_url('assets/js/mine_admin.js') ?>"></script>
 
 </body>
 </html>

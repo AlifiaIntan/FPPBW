@@ -5,9 +5,6 @@ class M_admin extends CI_Model{
 
   public function getSliderProducts()
     {
-        $this->db->select('vendors.url as vendor_url, products.id, products.quantity, products.image, products.url, products_translations.price, products_translations.title, products_translations.basic_description, products_translations.old_price');
-        $this->db->join('products_translations', 'products_translations.for_id = products.id', 'left');
-        $this->db->join('vendors', 'vendors.id = products.vendor_id', 'left');
         $this->db->where('visibility', 1);
         $this->db->where('in_slider', 1);
         $query = $this->db->get('products');
@@ -16,9 +13,6 @@ class M_admin extends CI_Model{
 
     public function getNewProducts()
     {
-        $this->db->select('vendors.url as vendor_url, products.id, products.quantity, products.image, products.url, products_translations.price, products_translations.title, products_translations.old_price');
-        $this->db->join('products_translations', 'products_translations.for_id = products.id', 'left');
-        $this->db->join('vendors', 'vendors.id = products.vendor_id', 'left');
         $this->db->where('products.in_slider', 0);
         $this->db->where('visibility', 1);
         $this->db->order_by('products.id', 'desc');
@@ -68,11 +62,6 @@ class M_admin extends CI_Model{
     public function getOneProduct($id)
     {
         $this->db->where('products.id', $id);
-        $this->db->select('vendors.url as vendor_url, products.*, products_translations.title,products_translations.description, products_translations.price, products_translations.old_price, products.url, shop_categories_translations.name as categorie_name');
-        $this->db->join('products_translations', 'products_translations.for_id = products.id', 'left');
-
-        $this->db->join('shop_categories_translations', 'shop_categories_translations.for_id = products.shop_categorie', 'inner');
-        $this->db->join('vendors', 'vendors.id = products.vendor_id', 'left');
         $this->db->where('visibility', 1);
         $query = $this->db->get('products');
         return $query->row_array();
@@ -81,13 +70,7 @@ class M_admin extends CI_Model{
 
   public function sameCagegoryProducts($categorie, $noId, $vendor_id = false)
     {
-        $this->db->select('vendors.url as vendor_url, products.id, products.quantity, products.image, products.url, products_translations.price, products_translations.title, products_translations.old_price');
-        $this->db->join('products_translations', 'products_translations.for_id = products.id', 'left');
-        $this->db->join('vendors', 'vendors.id = products.vendor_id', 'left');
         $this->db->where('products.id !=', $noId);
-        if ($vendor_id !== false) {
-            $this->db->where('vendor_id', $vendor_id);
-        }
         $this->db->where('products.shop_categorie =', $categorie);
         $this->db->where('visibility', 1);
         $this->db->order_by('products.id', 'desc');
@@ -98,9 +81,10 @@ class M_admin extends CI_Model{
 
 
 
-	function tampil_data(){
-		return $this->db->get('users');
-	}
+    function tampil_data(){
+    $query = $this->db->get('products');
+    return $query->result_array();
+    }
 
   function input_data($data,$table){
   $this->db->insert($table,$data);
@@ -119,4 +103,5 @@ function update_data($where,$data,$table){
   $this->db->where($where);
   $this->db->update($table,$data);
   }	
+
 }

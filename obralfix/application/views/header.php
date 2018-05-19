@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Home 02</title>
+	<title>Obral Aja - Original Makeup Product</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-<!--===============================================================================================-->  
-    <link rel="icon" type="image/png" href="<?= base_url('assets/images/icons/favicon.png') ?>">
+<!--===============================================================================================-->
+    <link rel="icon" type="image/png" href="<?= base_url('assets/images/icons/Logo1.png') ?>">
 <!--===============================================================================================-->
   <link rel="stylesheet" type="text/css" href="<?= base_url('assets/vendor/bootstrap/css/bootstrap.min.css') ?>">
 <!--===============================================================================================-->
@@ -16,11 +16,11 @@
     <link rel="stylesheet" type="text/css" href="<?= base_url('assets/fonts/linearicons-v1.0.0/icon-font.min.css') ?>">
 <!--===============================================================================================-->
    <link rel="stylesheet" type="text/css" href="<?= base_url('assets/vendor/animate/animate.css') ?>">
-<!--===============================================================================================-->  
+<!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="<?= base_url('assets/vendor/css-hamburgers/hamburgers.min.css') ?>">
 <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="<?= base_url('assets/vendor/select2/select2.min.css') ?>">
-<!--===============================================================================================-->  
+<!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="<?= base_url('assets/vendor/daterangepicker/daterangepicker.css') ?>">
 <!--===============================================================================================-->
    <link rel="stylesheet" type="text/css" href="<?= base_url('assets/vendor/slick/slick.css') ?>">
@@ -31,20 +31,20 @@
 <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="<?= base_url('assets/css/util.css') ?>">
     <link rel="stylesheet" type="text/css" href="<?= base_url('assets/css/main.css') ?>">
-<!--===============================================================================================-->   
+<!--===============================================================================================-->
 </head>
 <body >
-	
+
 	<!-- Header -->
 	<header class="header-v2">
 		<!-- Header desktop -->
 		<div class="container-menu-desktop trans-03">
 			<div class="wrap-menu-desktop">
 				<nav class="limiter-menu-desktop p-l-45">
-					
-					<!-- Logo desktop -->		
+
+					<!-- Logo desktop -->
 					<a href="#" class="logo">
-						<img src="images/icons/logo-01.png" alt="IMG-LOGO">
+						<img src="<?= base_url('assets/images/About/Logo1.png') ?>" alt="IMG-LOGO">
 					</a>
 
 					<!-- Menu desktop -->
@@ -58,23 +58,27 @@
 								<a href="<?= base_url('Home/product') ?>">Shop</a>
 							</li>
 
-							<li class="label1" data-label1="hot">
-								<a href="<?= base_url('Home/shopping') ?>">Features</a>
-							</li>
-
-							<li>
-								<a href="<?= base_url('Home/viewProduct') ?>">Product</a>
-							</li>
-
 							<li>
 								<a href="<?= base_url('Home/about') ?>">About</a>
 							</li>
 
 							<li>
-								<a href="contact.html">Contact</a>
+								<a href="<?= base_url('Home/Contact') ?>">Contact</a>
 							</li>
+							<?php
+							if (isset($this->session->userdata['logged_in'])) :
+							?>
+							<li>
+								<a href="<?= base_url('user_authentication/logout') ?>">Logout</a>
+							</li>
+							<?php else:?>
+								<li>
+									<a href="<?= base_url('user_authentication/user_login_process') ?>">Login</a>
+								</li>
+							<?php endif;?>
+
 						</ul>
-					</div>	
+					</div>
 
 					<!-- Icon header -->
 					<div class="wrap-icon-header flex-w flex-r-m h-full">
@@ -90,8 +94,8 @@
 							</div>
 						</div>
 					</div>
-							
-							
+
+
 						<div class="flex-c-m h-full p-lr-19">
 							<div class="icon-header-item cl2 hov-cl1 trans-04 p-lr-11 js-show-sidebar">
 								<i class="zmdi zmdi-menu"></i>
@@ -99,14 +103,14 @@
 						</div>
 					</div>
 				</nav>
-			</div>	
+			</div>
 		</div>
 
 
-          
+
 		<!-- Header Mobile -->
 		<div class="wrap-header-mobile">
-			<!-- Logo moblie -->		
+			<!-- Logo moblie -->
 			<div class="logo-mobile">
 				<a href="index.html"><img src="images/icons/logo-01.png" alt="IMG-LOGO"></a>
 			</div>
@@ -176,7 +180,7 @@
 		<div class="modal-search-header flex-c-m trans-04 js-hide-modal-search">
 			<div class="container-search-header">
 				<button class="flex-c-m btn-hide-modal-search trans-04 js-hide-modal-search">
-					<img src="images/icons/icon-close2.png" alt="CLOSE">
+					<img src="../assets/images/icons/icon-close2.png" alt="CLOSE">
 				</button>
 
 				<form class="wrap-search-header flex-w p-l-15">
@@ -227,78 +231,66 @@
 							Track Oder
 						</a>
 					</li>
-
-					<li class="p-b-13">
-						<a href="#" class="stext-102 cl2 hov-cl1 trans-04">
-							Refunds
-						</a>
-					</li>
-
-					<li class="p-b-13">
-						<a href="#" class="stext-102 cl2 hov-cl1 trans-04">
-							Help & FAQs
-						</a>
-					</li>
 				</ul>
 
 				<div class="sidebar-gallery w-full p-tb-30">
 					<span class="mtext-101 cl5">
-						@ CozaStore
+						@obral_aja
 					</span>
 
 					<div class="flex-w flex-sb p-t-36 gallery-lb">
 						<!-- item gallery sidebar -->
 						<div class="wrap-item-gallery m-b-10">
-							<a class="item-gallery bg-img1" href="images/gallery-01.jpg" data-lightbox="gallery" 
-							style="background-image: url('images/gallery-01.jpg');"></a>
+							<a class="item-gallery bg-img1" href="../assets/images/obral_aja/cetapil.jpg" data-lightbox="gallery"
+							style="background-image: url('../assets/images/obral_aja/cetapil.jpg');"></a>
 						</div>
 
 						<!-- item gallery sidebar -->
 						<div class="wrap-item-gallery m-b-10">
-							<a class="item-gallery bg-img1" href="images/gallery-02.jpg" data-lightbox="gallery" 
-							style="background-image: url('images/gallery-02.jpg');"></a>
+							<a class="item-gallery bg-img1" href="../assets/images/obral_aja/maybe.jpg" data-lightbox="gallery"
+							style="background-image: url('../assets/images/obral_aja/maybe.jpg');"></a>
 						</div>
 
 						<!-- item gallery sidebar -->
 						<div class="wrap-item-gallery m-b-10">
-							<a class="item-gallery bg-img1" href="images/gallery-03.jpg" data-lightbox="gallery" 
-							style="background-image: url('images/gallery-03.jpg');"></a>
+							<a class="item-gallery bg-img1" href="../assets/images/obral_aja/BC Brush 3.jpg" data-lightbox="gallery"
+							style="background-image: url('../assets/images/obral_aja/BC Brush 3.jpg');"></a>
 						</div>
 
 						<!-- item gallery sidebar -->
 						<div class="wrap-item-gallery m-b-10">
-							<a class="item-gallery bg-img1" href="images/gallery-04.jpg" data-lightbox="gallery" 
-							style="background-image: url('images/gallery-04.jpg');"></a>
+							<a class="item-gallery bg-img1" href="../assets/images/obral_aja/MS Blender Duo 2.png" data-lightbox="gallery"
+							style="background-image: url('../assets/images/obral_aja/MS Blender Duo 2.png');"></a>
 						</div>
 
 						<!-- item gallery sidebar -->
 						<div class="wrap-item-gallery m-b-10">
-							<a class="item-gallery bg-img1" href="images/gallery-05.jpg" data-lightbox="gallery" 
-							style="background-image: url('images/gallery-05.jpg');"></a>
+							<a class="item-gallery bg-img1" href="../assets/images/obral_aja/Revolution 2.jpg" data-lightbox="gallery"
+							style="background-image: url('../assets/images/obral_aja/Revolution 2.jpg');"></a>
 						</div>
 
 						<!-- item gallery sidebar -->
 						<div class="wrap-item-gallery m-b-10">
-							<a class="item-gallery bg-img1" href="images/gallery-06.jpg" data-lightbox="gallery" 
-							style="background-image: url('images/gallery-06.jpg');"></a>
+							<a class="item-gallery bg-img1" href="../assets/images/obral_aja/The Saem 1.jpg" data-lightbox="gallery"
+							style="background-image: url('../assets/images/obral_aja/The Saem 1.jpg');"></a>
 						</div>
 
 						<!-- item gallery sidebar -->
 						<div class="wrap-item-gallery m-b-10">
-							<a class="item-gallery bg-img1" href="images/gallery-07.jpg" data-lightbox="gallery" 
-							style="background-image: url('images/gallery-07.jpg');"></a>
+							<a class="item-gallery bg-img1" href="../assets/images/obral_aja/Pro Matte 1.png" data-lightbox="gallery"
+							style="background-image: url('../assets/images/obral_aja/Pro Matte 1.png');"></a>
 						</div>
 
 						<!-- item gallery sidebar -->
 						<div class="wrap-item-gallery m-b-10">
-							<a class="item-gallery bg-img1" href="images/gallery-08.jpg" data-lightbox="gallery" 
-							style="background-image: url('images/gallery-08.jpg');"></a>
+							<a class="item-gallery bg-img1" href="../assets/images/obral_aja/LA Concealer 2.jpg" data-lightbox="gallery"
+							style="background-image: url('../assets/images/obral_aja/LA Concealer 2.jpg');"></a>
 						</div>
 
 						<!-- item gallery sidebar -->
 						<div class="wrap-item-gallery m-b-10">
-							<a class="item-gallery bg-img1" href="images/gallery-09.jpg" data-lightbox="gallery" 
-							style="background-image: url('images/gallery-09.jpg');"></a>
+							<a class="item-gallery bg-img1" href="../assets/images/obral_aja/TBS Lip Matte 1.jpg" data-lightbox="gallery"
+							style="background-image: url('../assets/images/obral_aja/TBS Lip Matte 1.jpg');"></a>
 						</div>
 					</div>
 				</div>
@@ -309,7 +301,8 @@
 					</span>
 
 					<p class="stext-108 cl6 p-t-27">
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur maximus vulputate hendrerit. Praesent faucibus erat vitae rutrum gravida. Vestibulum tempus mi enim, in molestie sem fermentum quis. 
+						Obral Aja is Indonesia's trusted and complete online shopping destination offering authentic beauty products e.g. make up, skin care, hair care, fragrance and beauty tools serving women across Indonesia.
+						<br><br>
 					</p>
 				</div>
 			</div>
@@ -331,14 +324,9 @@
 					<i class="zmdi zmdi-close"></i>
 				</div>
 			</div>
-			
+
 			<div id="cart-contents">
-				
+
 			</div>
 		</div>
 	</div>
-
-
-
-
-	

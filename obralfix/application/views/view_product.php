@@ -24,7 +24,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <div class="row top-part">
         <div class="col-sm-4">
             <div <?= $product['folder'] != null ? 'style="margin-bottom:20px;"' : '' ?>>
-                <img src="<?= base_url('/attachments/shop_images/' . $product['image']) ?>" style="width:auto; height:auto;" data-num="0" class="other-img-preview img-responsive img-thumbnail img-sl the-image" alt="<?= str_replace('"', "'", $product['title']) ?>">
+                <img src="<?= base_url('/attachments/shop_images/' . $product['image']) ?>" style="width:auto; height:auto;" data-num="0" class="other-img-preview img-responsive img-thumbnail img-sl the-image" alt="<?= str_replace('"', "'", $product['tittle']) ?>">
             </div>
             <?php
             if ($product['folder'] != null) {
@@ -57,21 +57,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="col-md-6 col-lg-5 p-b-30">
                         <div class="p-r-50 p-t-5 p-lr-0-lg">
                             <h4 class="mtext-105 cl2 js-name-detail p-b-14">
-                                <?= $product['title'] ?>
+                                <?= $product['tittle'] ?>
                             </h4>
 
                             <span class="mtext-106 cl2">
                                 <?= $product['price'] ?>              
                             </span>
-                                            <?php if ($product['old_price'] != '') { ?>
+                    <?php if ($product['discount'] != '') { ?>
                     <div class="row row-info">
-                        <div class="col-sm-6"><b><?= lang('old_price') ?>:</b></div>
-                        <div class="col-sm-6"><?= $product['old_price']?></div>
+                        <div class="col-sm-6"><?= $product['discount']?></div>
                         <div class="col-sm-12 border-bottom"></div>
                     </div>
                     <div class="row row-info">
                         <div class="col-sm-6">
-                            <b><?= lang('in_stock') ?>:</b>
                         </div>
                         <div class="col-sm-6"><?= $product['quantity'] ?></div>
                         <div class="col-sm-12 border-bottom"></div>
@@ -99,7 +97,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <div class="col-sm-6"><b><?= ('in_category') ?>:</b></div>
                     <div class="col-sm-6">
                         <a href="javascript:void(0);" class="go-category btn-blue-round" data-categorie-id="<?= $product['shop_categorie'] ?>">
-                            <?= $product['categorie_name'] ?>
+                            <?= $product['shop_categorie'] ?>
                         </a>
                     </div>
                 </div>
@@ -116,7 +114,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                    buy_now
                                 </a></button>
                             </div>                        
-                            <button class="add_cart_one_item flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 js-addcart-detail" data-produkid="<?php echo $product['id'];?>" data-produknama="<?php echo $product['title'];?>" data-produkharga="<?php echo $product['price'];?>">Add To Cart</button>
+                            <button class="add_cart_one_item flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 js-addcart-detail" data-produkid="<?php echo $product['id'];?>" data-produknama="<?php echo $product['tittle'];?>" data-produkharga="<?php echo $product['price'];?>">Add To Cart</button>
                         <?php } else { ?>
                             <div class="alert alert-info"><?= ('out_of_stock_product') ?></div>
                         <?php } ?>

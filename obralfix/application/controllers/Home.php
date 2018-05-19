@@ -32,7 +32,6 @@ class Home extends CI_Controller {
 	$this->load->view('header');
     $this->load->view('index2',$data);
     $this->load->view('footer');
-
 	}
 
 	function about(){
@@ -43,22 +42,16 @@ class Home extends CI_Controller {
 
 	function viewProduct($id)
     {
-        $data = array();
-        $data['product'] = $this->M_admin->getOneProduct($id);
-        $data['sameCagegoryProduct'] = $this->M_admin->sameCagegoryProducts($data['product']['shop_categorie'], $id);
-        if ($data['product'] === null) {
-            show_404();
-        }
+    $data = array();
+    $data['product'] = $this->M_admin->getOneProduct($id);
+    $data['sameCagegoryProduct'] = $this->M_admin->sameCagegoryProducts($data['product']['shop_categorie'], $id);
+    if ($data['product'] === null) {
+         show_404();
+    }
     $this->load->view('header');
     $this->load->view('view_product',$data);
     $this->load->view('footer');
     }
-
-	function shopping(){
-	$this->load->view('header');
-    $this->load->view('shopping_cart',$data);
-    $this->load->view('footer');
-	}
 
 	function product(){
 	$data = array();
@@ -67,4 +60,24 @@ class Home extends CI_Controller {
     $this->load->view('product',$data);
     $this->load->view('footer');
 	}
+
+	function contact(){
+	$data = array();
+	$this->load->view('header');
+    $this->load->view('Contact');
+    $this->load->view('footer');
+	}
+
+	function checkout(){
+	$this->load->view('header');
+    $this->load->view('checkout');
+    $this->load->view('footer');
+	}
+
+	function Register(){
+	$this->load->view('header');
+    $this->load->view('Register');
+    $this->load->view('footer');
+	}
+
 }

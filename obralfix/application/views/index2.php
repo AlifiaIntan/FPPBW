@@ -26,7 +26,7 @@ if (count($sliderProducts) > 0) {
                             <div class="layer-slick1 animated visible-false" data-appear="rotateInDownLeft" data-delay="0">
                                 <span class="ltext-202 cl2 respon2">
                                 	<a href="<?= $article['url'] ?>">
-                                        <?= $article['title'] ?>
+                                        <?= $article['tittle'] ?>
                                          <!-- ngambil data dari artikel -->
                                     </a>
                                 </span>
@@ -74,7 +74,7 @@ if (count($sliderProducts) > 0) {
                     <a <?=  $product['url'] ?> href="product.html" class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
                         <div class="block1-txt-child1 flex-col-l">
                             <span class="block1-name ltext-102 trans-04 p-b-8">
-                                <?= $product['title'] ?>
+                                <?= $product['tittle'] ?>
                             </span>
                         </div>
 
@@ -367,7 +367,7 @@ if (count($sliderProducts) > 0) {
                         <div class="block2-txt flex-w flex-t p-t-14">
                             <div class="block2-txt-child1 flex-col-l ">
                                 <a href="product-detail.html" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
-                                    <?= $product['title'] ?>
+                                    <?= $product['tittle'] ?>
                                 </a>
 
                                 <span class="stext-105 cl3">
