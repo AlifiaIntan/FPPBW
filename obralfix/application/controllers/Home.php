@@ -60,10 +60,23 @@ class Home extends CI_Controller {
     $this->load->view('product',$data);
     $this->load->view('footer');
 	}
-	
+
+	function contact(){
+	$data = array();
+	$this->load->view('header');
+    $this->load->view('Contact');
+    $this->load->view('footer');
+	}
+
 	function checkout(){
 	$this->load->view('header');
     $this->load->view('checkout');
+    $this->load->view('footer');
+	}
+
+	function Register(){
+	$this->load->view('header');
+    $this->load->view('Register');
     $this->load->view('footer');
 	}
 
