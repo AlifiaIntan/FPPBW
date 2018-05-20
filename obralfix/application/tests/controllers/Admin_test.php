@@ -9,8 +9,8 @@ class Admin_test extends TestCase {
 
     {
 
-        $output = $this->request('GET', ['Admin','index']);
-        $expected ="<h3>Product Overview</h3>";
+        $output = $this->request('Admin/index');
+        $expected ="Basic Table";
         $this->assertcontains($expected, $output);
     }
 
